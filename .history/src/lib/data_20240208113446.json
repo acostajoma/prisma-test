@@ -1,0 +1,12 @@
+[
+    {
+        "title": "TEST",
+		"published": true,
+		"content": "Jose Martin Acosta"
+	},
+    {
+        "title": "TEST2",
+		"published": true,
+		"content": "Ariana Araya"
+	}
+]

@@ -1,0 +1,24 @@
+<script lang="ts">
+	import { PrismaClient } from '@prisma/client/edge';
+	import { withAccelerate } from '@prisma/extension-accelerate';
+	import { PUBLIC_DATABASE_URL } from '$env/static/public';
+	let result;
+	const funct = async () => {
+		const prisma = new PrismaClient({
+			datasourceUrl: PUBLIC_DATABASE_URL
+		}).$extends(withAccelerate());
+		result = await prisma.user.create({
+			data: {
+				email: 'jose@macosta.dev',
+				name: 'Jose Martin Acosta'
+			}
+		});
+	};
+</script>
+
+<h1>Welcome to SvelteKit</h1>
+<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<button on:click={funct}>CLICK HERE</button>
+{#if result}
+	{result}
+{/if}
